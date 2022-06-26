@@ -1,0 +1,301 @@
+@import '../../styles/colors.scss';
+
+.item {
+  padding: 0 15px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 350px) {
+    padding: 0 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 280px;
+  }
+}
+
+.card {
+  position: relative;
+  width: 320px;
+
+  border-radius: 12px;
+  color: $black;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -7px;
+
+    display: block;
+    height: 4px;
+    width: 59px;
+
+    border-radius: 4px;
+    background: $blue;
+    transform: rotate(-43deg);
+    z-index: 100;
+    transition: background 0.4s linear;
+  }
+
+  &:hover {
+    border-color: $blue-hover;
+
+    .subtitle,
+    .content {
+      border-color: $blue-hover;
+    }
+
+    .weight,
+    &::before {
+      background-color: $blue-hover;
+    }
+  }
+
+  &.active {
+    border-color: $pink;
+
+    .weight,
+    &::before {
+      background-color: $pink;
+    }
+
+    .subtitle,
+    .content {
+      border-color: $pink;
+    }
+
+    &.hover {
+      border-color: $pink-hover;
+
+      .weight,
+      &::before {
+        background-color: $pink-hover;
+      }
+
+      .subtitle,
+      .content {
+        border-color: $pink-hover;
+      }
+    }
+  }
+
+  &.disabled {
+    color: rgba($text-disabled, 0.5);
+    border-color: $text-disabled;
+    cursor: not-allowed;
+    user-select: none;
+
+    &::after {
+      opacity: 0.5;
+    }
+
+    .subtitle,
+    .content {
+      color: rgba($text-disabled, 0.5);
+      border-color: $text-disabled;
+    }
+
+    .weight,
+    &::before {
+      background-color: $text-disabled;
+    }
+
+    & + .buy {
+      color: $yellow;
+    }
+
+    .img {
+      opacity: 0.5;
+    }
+  }
+
+  .img {
+    position: absolute;
+    left: -28px;
+    bottom: -91px;
+
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  @media (max-width: 350px) {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::before {
+      top: 20px;
+      left: 0px;
+    }
+  }
+}
+
+.header {
+  position: relative;
+
+  display: flex;
+  justify-content: end;
+
+  @media (max-width: 350px) {
+    width: 265px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 49;
+
+  padding: 0px 10px 10px 47px;
+  height: 439px;
+
+  background-color: $bgCard;
+  border: 4px solid $blue;
+  border-radius: 12px;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  overflow: hidden;
+  transition: border 0.4s linear;
+
+  @media (max-width: 350px) {
+    padding: 0px 10px 10px 39px;
+    width: 265px;
+    height: 425px;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  padding: 4px 6px 0px 0px;
+
+  letter-spacing: 1.1px;
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.subtitle {
+  position: relative;
+  top: 1px;
+  width: 277px;
+
+  display: block;
+  padding: 16px 0 2px 9px;
+
+  background-color: $bgCard;
+  border: 4px solid $blue;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  color: $grey;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: border 0.4s linear;
+
+  @media (max-width: 350px) {
+    padding: 16px 0 2px 2px;
+    width: 222px;
+  }
+}
+
+.subtitle_hover {
+  color: $pink-hover;
+  opacity: 0;
+  animation: ani 0.5s forwards;
+}
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.taste {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.weight {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 80px;
+  height: 80px;
+
+  background-color: $blue;
+  color: $white;
+  font-size: 42px;
+  line-height: 40px;
+  border-radius: 50%;
+  transition: background 0.4s linear;
+
+  span {
+    font-size: 21px;
+    line-height: 22px;
+  }
+}
+
+.buy {
+  padding-top: 14px;
+  text-align: center;
+
+  font-size: 13px;
+  line-height: 15px;
+  font-family: 'trebuchetms';
+
+  span {
+    text-decoration: none;
+    border-bottom: 1px dashed $blue;
+    color: $blue;
+    cursor: pointer;
+  }
+
+  @media (max-width: 350px) {
+    padding: 14px 0 0 0;
+    text-align: center;
+  }
+}
+
+.corner {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  width: 0;
+  height: 0;
+
+  border-bottom: 41px solid $bgCard;
+  border-left: 43px solid transparent;
+}

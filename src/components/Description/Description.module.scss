@@ -1,0 +1,22 @@
+@import '../../styles/colors.scss';
+
+.description {
+  margin-top: 13px;
+
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: $grey;
+
+  &.disabled {
+    color: rgba($text-disabled, 0.5);
+  }
+
+  & .number {
+    margin-right: 2px;
+  }
+
+  span {
+    font-weight: 700;
+  }
+}
