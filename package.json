@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Kostin Sergey kostins.s@yandex.ru",
   "private": true,
+  "homepage": "https://kostin-s.github.io/cards-cat/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -12,6 +13,7 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "classnames": "^2.3.1",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -23,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
